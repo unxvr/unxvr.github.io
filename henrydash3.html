@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@200&family=Chakra+Petch:wght@300&display=swap" rel="stylesheet">
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@200&display=swap" rel="stylesheet">
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap" rel="stylesheet">
+
+<style>
+body {
+  font-family: helvetica, sans-serif;
+  margin: 0 auto;
+  max-width: 600px;
+  background: #FFE5B4;
+}
+div {
+  height: 800px;
+  background-size: 100% 100%;
+  position: relative;
+  margin: 40px 0 0 0;
+  border-radius: 12px;
+  font-family: 'barlow', cursive;
+}
+
+input {
+  font-size: 22px;
+}
+
+h1 {
+  font-family: 'Open sans', cursive;
+  text-align: center;
+  font-size: 75px;
+  color: #FF671F;
+  margin: 60px 0 0 0;
+}
+h2 {
+  text-align: center;
+  color: #DA1884;
+  margin: 0px 0 70px 0;
+  font-size: 75px;
+}
+h3 {
+  text-align: center;
+  margin: 0px 0 70px 0;
+  color: #653819;
+  font-family: 'Chakra Petch';
+}
+  
+p {
+  color: rgba(245,162,137,1);
+  background: black;
+  background: linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+  background: -webkit-linear-gradient(bottom, rgba(150,75,0,1), rgba(0,0,0,.4));
+  background: -moz-linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+  padding: 10px;
+  line-height: 28px;
+  text-align: justify;
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  height: 30px;
+  transition: height .5s;
+  -webkit-transition: height .5s;
+  -moz-transition: height .5s;
+}
+
+small {
+  opacity: 0;
+}
+
+.show-description p {
+  height: 150px;
+}
+
+.show-description small {
+  opacity: 1;
+}
+
+.first{
+  background-image: url("https://miro.medium.com/v2/resize:fit:1024/1*aveFRFggV77rbVI60km1oQ.jpeg");
+}
+.second{
+  background-image: url("https://www.dunkindonuts.com/content/dam/dd/img/menu-redesign/sandwiches-and-more/pdp-sandwiches-wraps/Sausage_Egg&Cheese.png");
+}
+.dessert{
+  background-image: url("https://hips.hearstapps.com/hmg-prod/images/berry-hibiscus-iced-tea-min-1578072227.jpg");
+}
+.price {
+  float: right;
+}
+@media (max-width: 500px) {
+  h1 {
+    font-size: 50px;
+    margin-top: 20px;
+    line-height: 40px;
+  }
+  h2 {
+    font-size: 40px;
+    margin: 20px 0 30px 0;
+  }
+  h3 {
+    margin: 40px 0 0 0;
+    font-size 50px;
+  }
+  div {
+    margin: 20px 12px 0 12px;
+  }
+  p {
+    font-size: 20px;
+    line-height: 24px;
+  }
+  small {
+    font-size: 16px;
+  }
+}
+
+</style>
+
+</head>
+
+<body>
+<h1>Dunkin</h1>
+<h2>Donuts</h2>
+<h3>America Runs On Dunkin!</h2>
+<div class="first">
+<input type="number" min="0" style="width: 50px">
+  <p>Bacon, Egg, and Cheese Crossaint<span class="price">$4.50</span><br />
+  <small>Enjoy a crossaint with egg, bacon, and cheese, with toasted bread and seasoned delicious bacon. You will love it! </small></p>
+</div>
+
+<div class="second">
+<input type="number" min="0" style="width: 50px">
+  <p>Sausage, Egg, and Cheese Crossiant <span class="price">$5</span><br />
+  <small>Enjoy the delicious crossaint, filled with sausage meat, egg and cheese, seasoned to perfection!                         </small></p>
+</div>
+  
+<div class="dessert">
+<input type="number" min="0" style="width: 50px">
+  <p>Drinks <span class="price">$3-5</span><br />
+  <small>Enjoy a cold drink from us, ranging from Iced Coffee, Iced Tea , Cold Refreshers and many more!</small></p>
+</div>
+
+<br><br>
+<input id="Name" type="name" placeholder="Your name">
+<input id="Email" placeholder="Your email">
+<input id="submit" type="submit">
+<br><br>
+
+<script>
+  $('div').on('click', function() {
+      $(this).toggleClass('show-description');
+  });
+</script>
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+  import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-database.js";
+  
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyAd6aPg-mVNa648-UgBTQlVjrO_5NeQkwE",
+    authDomain: "henryrestaurant3new.firebaseapp.com",
+    databaseURL: "https://henryrestaurant3new-default-rtdb.firebaseio.com",
+    projectId: "henryrestaurant3new",
+    storageBucket: "henryrestaurant3new.appspot.com",
+    messagingSenderId: "712005690638",
+    appId: "1:712005690638:web:0167ad64f52a80deb0e35f"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
+const Name = document.querySelector("#Name") 
+const Email = document.querySelector("#Email")
+document.querySelector('#submit').addEventListener('click', Submit)
+
+function Submit() {
+  const timestamp = buildTimestamp()
+
+  set(ref(db, timestamp), {
+	  Name: Name.value,
+      email: Email.value,
+  });
+
+  Name.value = ""
+  Email.value = ""
+}
+
+function buildTimestamp() {
+  const now = new Date();
+  let timestamp = now.getFullYear().toString() + "/";
+  //const month = now.toLocaleString('default', { month: 'long' });
+
+  let month = now.getMonth()+1   //add 1 because Javascript uses 0 for January
+  month = month.toString()
+  month = addLeadingZero(month)
+  timestamp += month + "/"; 
+
+  let date = now.getDate().toString()
+  date = addLeadingZero(date)
+  timestamp += date + "/";
+
+  let hours = now.getHours().toString()
+  hours = addLeadingZero(hours)
+  timestamp += hours + ":";
+
+  let minutes = now.getMinutes().toString()
+  minutes = addLeadingZero(minutes)
+  timestamp += minutes + ":";
+
+  let seconds = now.getSeconds().toString()
+  seconds = addLeadingZero(seconds)
+  timestamp += seconds;
+
+  return timestamp
+}
+
+function addLeadingZero(units) {
+	if (units.length < 2) {
+		units = "0" + units
+	}
+	return units
+}   
+</script>
+</body>
